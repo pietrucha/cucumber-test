@@ -3,9 +3,8 @@ package pietruh.test.features.google;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java8.En;
@@ -21,7 +20,6 @@ public class StepDefinitions implements En {
          System.setProperty("webdriver.chrome.driver",
                "C:/Users/ppietrucha/Programy/chromedriver_win32/chromedriver.exe");
 
-         //         driver = new FirefoxDriver();
          driver = new ChromeDriver();
          driver.navigate().to(
                "https://developers.google.com/speed/pagespeed/?hl=pl-PL&utm_source=PSI&utm_medium=incoming-link&utm_campaign=PSI");
@@ -38,20 +36,8 @@ public class StepDefinitions implements En {
       });
 
       Then("^I validate the outcomes$", () -> {
-         //         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
          WebDriverWait webDriverWait = new WebDriverWait(driver, 15);
-         ExpectedCondition<Boolean> cond = new ExpectedCondition<Boolean>() {
-
-            @Override
-            public Boolean apply(WebDriver input) {
-               WebElement findElement = driver.findElement(By.cssSelector(".pagespeed-results"));
-               driver.close();
-               return findElement != null;
-            }
-         };
-         
-         Assert.assertTrue(webDriverWait.until(cond).booleanValue());
+         Assert.assertNotNull(webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".pagespeed-results"))));
       });
    }
-
 }
