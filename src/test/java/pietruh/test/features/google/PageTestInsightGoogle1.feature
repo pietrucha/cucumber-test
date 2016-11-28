@@ -1,5 +1,3 @@
-#Author: pawel.pietrucha@qumak.pl
-
 @tag
 Feature: Test contact form works when there are no errors
 

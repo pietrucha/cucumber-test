@@ -1,7 +1,10 @@
 package pietruh.test.features.google;
 
+import static org.openqa.selenium.By.id;
+import static org.openqa.selenium.By.name;
+import static org.openqa.selenium.By.cssSelector;
+import static org.openqa.selenium.By.tagName;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,18 +29,18 @@ public class StepDefinitions implements En {
       });
 
       When("^I click on Use PageSpeed Insights link$", () -> {
-         driver.findElement(By.id("use-pagespeed-insights")).click();
+         driver.findElement(id("use-pagespeed-insights")).click();
       });
 
       When("^Populate tristar\\.gdynia\\.pl page to test$", () -> {
-         driver.findElement(By.tagName("input").name("url"))
+         driver.findElement(tagName("input").name("url"))
                .sendKeys("https://tristar.gdynia.pl/pages/public/detailed_map.xhtml");
-         driver.findElement(By.cssSelector(".button.button-red.analyze.jfk-button.main-submit")).click();
+         driver.findElement(cssSelector(".button.button-red.analyze.jfk-button.main-submit")).click();
       });
 
       Then("^I validate the outcomes$", () -> {
          WebDriverWait webDriverWait = new WebDriverWait(driver, 15);
-         Assert.assertNotNull(webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".pagespeed-results"))));
+         Assert.assertNotNull(webDriverWait.until(ExpectedConditions.presenceOfElementLocated(cssSelector(".pagespeed-results"))));
       });
    }
 }
