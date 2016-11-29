@@ -28,7 +28,7 @@ public class StepDefinitions implements En {
                "https://developers.google.com/speed/pagespeed/?hl=pl-PL&utm_source=PSI&utm_medium=incoming-link&utm_campaign=PSI");
       });
 
-      When("^I click on Use PageSpeed Insights link$", () -> {
+      When("^I click page on Use PageSpeed Insights link$", () -> {
          driver.findElement(id("use-pagespeed-insights")).click();
       });
 
