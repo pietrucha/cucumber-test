@@ -1,9 +1,9 @@
 package pietruh.test.features.google;
 
-import static org.openqa.selenium.By.id;
-import static org.openqa.selenium.By.name;
 import static org.openqa.selenium.By.cssSelector;
+import static org.openqa.selenium.By.id;
 import static org.openqa.selenium.By.tagName;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

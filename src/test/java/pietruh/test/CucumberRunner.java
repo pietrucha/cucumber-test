@@ -1,8 +1,5 @@
 package pietruh.test;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-
 import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
@@ -17,9 +14,5 @@ import cucumber.api.junit.Cucumber;
 )
 //@formatter:on
 public class CucumberRunner {
-   public final static String now = LocalDateTime.now().toString();
 
-   public CucumberRunner() {
-      new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-   }
 }
